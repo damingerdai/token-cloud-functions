@@ -3,14 +3,14 @@ service: token-cloud-functions
 provider:
   name: google
   stage: dev
-  runtime: nodejs8
+  runtime: nodejs10
   region: us-central1
-  project: my-project
+  project: radiant-mason-279208
   # The GCF credentials can be a little tricky to set up. Luckily we've documented this for you here:
   # https://serverless.com/framework/docs/providers/google/guide/credentials/
   #
   # the path to the credentials file needs to be absolute
-  credentials: ~/.gcloud/keyfile.json
+  credentials: ./keyfile.json
 
 plugins:
   - serverless-google-cloudfunctions
@@ -24,7 +24,7 @@ package:
     - .git/**
 
 functions:
-  first:
+  create-token:
     handler: http
     events:
       - http: path
